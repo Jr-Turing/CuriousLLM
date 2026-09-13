@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-paper: 250 249 245;
+    --color-surface: 255 255 255;
+    --color-ink: 20 22 26;
+    --color-ink-soft: 90 94 104;
+    --color-ink-faint: 138 141 150;
+    --color-line: 229 225 214;
+    --color-navy: 27 36 48;
+    --color-navy-soft: 43 52 65;
+    --color-accent: 193 121 31;
+    --color-accent-deep: 147 89 15;
+    --color-accent-soft: 243 227 204;
+    --color-good: 63 125 88;
+    --color-good-soft: 227 239 231;
+    --color-warn: 178 58 46;
+    --color-warn-soft: 245 227 224;
+  }
+
+  .dark {
+    --color-paper: 20 24 29;
+    --color-surface: 29 35 42;
+    --color-ink: 239 241 238;
+    --color-ink-soft: 180 187 190;
+    --color-ink-faint: 130 140 145;
+    --color-line: 61 70 76;
+    --color-navy: 11 15 20;
+    --color-navy-soft: 38 48 59;
+    --color-accent: 219 151 62;
+    --color-accent-deep: 242 181 91;
+    --color-accent-soft: 82 61 35;
+    --color-good: 106 177 131;
+    --color-good-soft: 35 65 48;
+    --color-warn: 226 112 96;
+    --color-warn-soft: 77 42 38;
+  }
+
+  * {
+    @apply border-line;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  ::selection {
+    background: #C1791F33;
+  }
+  :focus-visible {
+    outline: 2px solid #C1791F;
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .rule-line {
+    background-image: linear-gradient(to bottom, #E5E1D6 1px, transparent 1px);
+    background-size: 100% 1px;
+  }
+  .ledger-row {
+    @apply grid items-center border-b border-line py-3;
+  }
+  .tick-bar {
+    @apply relative h-2 w-full overflow-hidden rounded-full bg-line/60;
+  }
+  .tick-bar > span {
+    @apply absolute inset-y-0 left-0 block rounded-full bg-accent;
+  }
+}
