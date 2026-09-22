@@ -1,1 +1,1 @@
-# CuriousLLM - an AI-powered study assistant
+# CuriousLLM - an AI-powered study assistant with RAG
